@@ -1,5 +1,4 @@
 # Variables y tipos de datos
-
 nombre = "Luis"
 edad = 30
 altura = 1.75
@@ -67,8 +66,9 @@ resultado = sumar(10, 5)
 print(resultado)
 print(sumar(100, 200))
 
+# Funciones con return — ejemplo cafe
 def precio_cafe():
-    return 45
+    return 80
 
 def total_con_propina(precio):
     return precio + (precio * 0.10)
