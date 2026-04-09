@@ -51,3 +51,41 @@ print(type(coordenadas))
 tecnologias = {"Python", "FastAPI", "Python", "Docker", "FastAPI"}
 print(tecnologias)
 print(type(tecnologias))
+
+# Funciones
+def saludar(nombre):
+    print(f"Hola, {nombre}. Bienvenido al path de Backend Engineering.")
+
+saludar("Luis")
+saludar("Wewa")
+
+# Funciones con retorno
+def sumar(a, b):
+    return a + b
+
+resultado = sumar(10, 5)
+print(resultado)
+print(sumar(100, 200))
+
+def precio_cafe():
+    return 45
+
+def total_con_propina(precio):
+    return precio + (precio * 0.10)
+
+cafe = precio_cafe()
+total = total_con_propina(cafe)
+print(f"Total a pagar: {total} pesos")
+
+# Funciones con logica real
+def clasificar_servidor(uso_cpu):
+    if uso_cpu >= 90:
+        return "ALERTA CRITICA!"
+    elif uso_cpu >= 70:
+        return "ALERTA WARNING"
+    else:
+        return "NORMAL"
+
+print(clasificar_servidor(95))
+print(clasificar_servidor(75))
+print(clasificar_servidor(40))
