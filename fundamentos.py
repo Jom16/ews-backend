@@ -105,3 +105,62 @@ servidor2 = Servidor("NOC-02", "192.168.1.2", "CRITICO")
 
 print(servidor1.mostrar_info())
 print(servidor2.mostrar_info())
+
+# OOP - Modificar atributos
+servidor1.estado = "MANTENIMIENTO"
+print(servidor1.mostrar_info())
+
+# OOP - Herencia
+class ServidorWeb(Servidor):
+    def __init__(self, nombre, ip, estado, dominio):
+        super().__init__(nombre, ip, estado)
+        self.dominio = dominio
+
+    def mostrar_info(self):
+        return f"{self.nombre} | IP:  {self.ip} | Dominio: {self.dominio}"
+
+
+web1 = ServidorWeb("WEB-01", "192.168.2.1", "ACTIVO", "ews-backend.com")
+print(web1.mostrar_info())
+
+# OOP - Encapsulamiento
+class ServidorSeguro:
+    def __init__(self, nombre, ip):
+        self.nombre = nombre
+        self.__ip = ip  # Atributo privado
+
+    def get_ip(self):
+        return self.__ip
+    
+    def set_ip(self, nueva_ip):
+        if "192.168" in nueva_ip:
+            self.__ip = nueva_ip
+        else:
+            return "IP no válida"
+
+seguro1 = ServidorSeguro("SECURE-01", "192.168.3.1")
+print(seguro1.get_ip())
+seguro1.set_ip("192.168.3.99")
+print(seguro1.get_ip())
+
+# OOP — Encapsulamiento | Protegiendo datos como Apple
+class iPhone:
+    def __init__(self, modelo, color):
+        self.modelo = modelo
+        self.color = color
+        self.__pin = "0000"  # nadie puede tocarlo directamente
+
+    def get_pin(self):
+        return "****"  # nunca muestras el pin real
+
+    def set_pin(self, pin_actual, nuevo_pin):
+        if pin_actual == self.__pin:
+            self.__pin = nuevo_pin
+            return "PIN actualizado"
+        else:
+            return "PIN incorrecto"
+
+mi_iphone = iPhone("iPhone 16 Pro", "Negro")
+print(mi_iphone.get_pin())
+print(mi_iphone.set_pin("0000", "1234"))
+print(mi_iphone.set_pin("9999", "5678"))
