@@ -89,3 +89,19 @@ def clasificar_servidor(uso_cpu):
 print(clasificar_servidor(95))
 print(clasificar_servidor(75))
 print(clasificar_servidor(40))
+
+# OOP - Clases y objetos
+class Servidor:
+    def __init__(self, nombre, ip, estado):
+        self.nombre = nombre
+        self.ip = ip
+        self.estado = estado
+
+    def mostrar_info(self):
+        return f"{self.nombre} | IP:  {self.ip} | Estado: {self.estado}"
+    
+servidor1 = Servidor("NOC-01", "192.168.1.1", "ACTIVO")
+servidor2 = Servidor("NOC-02", "192.168.1.2", "CRITICO")
+
+print(servidor1.mostrar_info())
+print(servidor2.mostrar_info())
